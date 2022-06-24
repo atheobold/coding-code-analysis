@@ -1,0 +1,83 @@
+---
+title: "Appendix B"
+author: "Example Analysis"
+date: 'By Dr. Allison Theobold'
+output: html_document
+---
+
+## Analytical Framework
+
+The intention of this analysis is to outline the set of data science skills used
+by two students during their independent research project. Because the focus of 
+the analysis is on the *skills*, each "line" of code was selected as the unit of
+analysis--the **atom** level of the Block Model (Schulte, 2008). To unpack what 
+data science skill(s) were being used at each line, the **operation** was
+selected as the dimension to be analyzed. 
+
+
+## Data 
+
+For the end of their graduate-level applied statistics course, students were 
+expected to complete an independent project. The project required they apply 
+the statistical concepts used in the class in the context of data from their own
+research. 
+
+The R code produced by two students' code was selected for analysis, Student A
+and Student B.
+
+
+### Coding Student A's Research Project Code
+
+| Line of Code                  | Descriptive Code    |
+|-------------------------------|:--------------------|
+| `#upper anterior measurement` | comment             |
+| `anterior <- lm(ProximateAnalysisData$PSUA~ProximateAnalysisData$Lipid)` | creates lm object, uses `$` operator to extract specific columns |
+| `summary(anterior)` | views summary of lm object |
+| `with(ProximateAnalysisData, plot(PSUA ~ Lipid, las = 1))` | creates scatterplot of variables in lm, attaches data using `with()` | 
+| `abline(anterior)` | adds lm line to plot |
+| `plot(anterior)` | creates diagnostic plots of lm |
+| `posterior <- lm(ProximateAnalysisData$PSUP ~ ProximateAnalysisData$Lipid)` | creates lm object, uses `$` operator to extract specific columns |
+| `summary(posterior)` | views summary of lm object |
+| `posterior` | inspects lm object |
+| `with(ProximateAnalysisData, plot(PSUP ~ Lipid, las = 1))` | creates scatterplot of variables in lm, attaches data using `with()` | 
+| `abline(posterior)` | adds lm line to plot |
+| `plot(posterior)` | creates diagnostic plot of lm |
+| `#OUTLIER REMOVED` | comment |
+| `anterior2 <- lm(ProximateAnalysisDataOutlier$PSUA ~ ProximateAnalysisDataOutlier$Lipid)` | creates lm object, uses `$` operator to extract columns |
+| `summary(anterior2)` | views summary of lm object | 
+| `with(ProximateAnalysisDataOutlier, plot(PSUA ~ Lipid, las = 1,  xlab = "Whole-body Lipid Content (%)", ylab = "UA Fatmeter Reading"))` | creates scatterplot of variables in lm, attaches data using `with()`, changes axis labels, modifies rotation of axis ticks | 
+| `abline(anterior2)` | adds lm line to plot |
+| `plot(anterior2)` | creates diagnostic plot of lm |
+| `anterior2` | inspects lm object |
+| `posterior2 <- lm(ProximateAnalysisDataOutlier$PSUP ~ ProximateAnalysisDataOutlier$Lipid)` | creates lm object, uses `$` operator to extract specific columns | 
+| `summary(posterior2)` | views summary of lm object | 
+| `with(ProximateAnalysisDataOutlier, plot(PSUP ~ Lipid, las = 1,  xlab = "Whole-body Lipid Content (%)", ylab = "UP Fatmeter Reading"))` | creates scatterplot of variables in lm, attaches data using `with()`, changes axis labels, modifies rotation of axis ticks |
+| `abline(posterior2)` | adds lm line to plot | 
+| `plot(posterior2)` | creates diagnostic plot of lm | 
+| `posterior2` | inspects lm object | 
+| `qt(.975,9)` | uses `qt()` function to calculate t-quantile for given inputs |
+| `#upper Middle measurements only` | comment | 
+| `middle <- lm(ProximateAnalysisData$PSUM ~ ProximateAnalysisData$Lipid)` | creates lm object, uses `$` operator to extract columns | 
+| `summary(middle)` | views summary of lm object |
+| `with(ProximateAnalysisData, plot(PSUM ~ Lipid, las = 1, xlab = "Whole-body Lipid Content (%)", ylab = "UM Fatmeter Reading"))` | creates scatterplot of variables in lm, attaches data using `with()`, changes axis labels, modifies rotation of axis ticks |
+| `abline(middle)` | adds lm line to plot |
+| `plot(middle)` | creates diagnostic plots of lm |
+| `middle`     | inspects lm object |
+| `middleLog <- lm(ProximateAnalysisData$logPSUM ~ ProximateAnalysisData$Lipid)` | creates lm object, uses `$` operator to extract columns |
+| `summary(middleLog)` | views summary of lm object |
+| `with(ProximateAnalysisData, plot(logPSUM ~ Lipid, las = 1))` | creates scatterplot of variables in lm, attaches data using `with()`, modifies rotation of axis ticks | 
+| `abline(middleLog)` | adds lm line to plot |
+| `plot(middle)`    | creates diagnostic plots of lm |
+| `with(ProximateAnalysisData, plot(Lipid ~ logPSUM, las = 1))` | creates scatterplot of variables in lm, attaches data using `with()`, modifies rotation of axis ticks |
+| `#Means and sd of data` | comment |
+| `mean(ProximateAnalysisData$Lipid)` | calculates mean, uses `$` operator to extract column |
+| `sd(ProximateAnalysisData$Lipid)` | calculates standard deviation, uses `$` operator to extract column | 
+
+
+
+
+### Coding Student B Research Project Code
+
+
+## Cross-Case Comparison of Student A & Student B
+
